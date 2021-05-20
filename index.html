@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="m-5">
+      <h1>B2: Bài tập tìm, duyệt các phần tử trong mảng</h1>
+      <div class="form-group">
+        <h2>Nhập vào 1 mảng bất kỳ, các phần tử cách nhau bởi dấu cách</h2>
+        <input type="text" id="rawArray" class="form-control" />
+        <button class = "btn btn-success" id = "btnInsertArr">Tạo mảng</button>
+        <div class="alert alert-success">
+          <p>Mảng được tạo:</p>
+          <span id="array"></span>
+        </div>
+        <p>Nhập vào số</p>
+        <input class="form-control" id="num" />
+        <button id="handleBtn" class="mt-2 btn btn-success">In kết quả</button>
+      </div>
+      <div class="alert alert-success">
+        Số lần xuất hiện: <span id="soLanXuatHien"></span>
+      </div>
+      <div class="alert alert-success">
+        Số lẻ nhỏ nhất: <span id="soLeNhoNhat"></span>
+      </div>
+      <div class="alert alert-success">
+        Tổng các phần tử: <span id="ketQuaLapLai"></span>
+      </div>
+      Câu nâng cao (20% số điểm /tổng bài tập)
+      <div class="alert alert-danger">
+        Giá trị lặp lại trong mảng là:
+        <span id="ketQuaLapLai">7 (2 lần) - 9 (3 lần)</span>
+      </div>
+    </section>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Optional JavaScript -->
+    <script src="./method/method.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
