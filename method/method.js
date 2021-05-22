@@ -1,8 +1,20 @@
+function $(id) {
+  return document.getElementById(id);
+}
+
+//Function bai 1
+function repeatElements(str, timesOfRepeat) {
+  let result = "";
+  for (let i = 0; i < timesOfRepeat; i++) result += str;
+  return result;
+}
+
+//Insert number Array from keyboard
 function strToNumArr(str) {
   let rawArr = str.split(" ");
   let changedArr = new Array(0);
 
-  // xóa các phần tử do khoảng trống thừa tạo ra
+  // remove extra spaces
   for (let i = 0; i < rawArr.length; i++) {
     if (rawArr[i] === "") {
       rawArr.splice(i, 1);
@@ -10,6 +22,7 @@ function strToNumArr(str) {
     } else rawArr[i] = Number(rawArr[i]);
   }
 
+  //String Array to Number Array
   if (rawArr.length === 1) changedArr.push(Number(str));
   else {
     rawArr.forEach((element) => {
@@ -17,14 +30,12 @@ function strToNumArr(str) {
     });
   }
 
-  //đổi kiểu dữ liệu trong mảng str=>number
   for (let i = 0; i < changedArr.length; i++)
     changedArr[i] = Number(changedArr[i]);
   return changedArr;
 }
 
 // Hash table
-
 class HashTable {
   constructor() {
     this.buckets = new Array();
@@ -35,7 +46,6 @@ class HashTable {
     return key.toString().length % this.size;
   }
 
-  // Insert data
   add(key, value) {
     let index = this.hash(key);
 
@@ -47,7 +57,6 @@ class HashTable {
     return index;
   }
 
-  // Search data
   search(key) {
     let index = this.hash(key);
 
@@ -86,4 +95,58 @@ class HashTable {
     }
     return;
   }
+}
+//Function Bai 2
+// Dùng HashTable và Set để đếm số lần lặp lại của các phần tử trong mảng
+function deleteOldHashTable(set) {
+  set.forEach((element) => {
+    hashTable.remove(element);
+    set.delete(element);
+  });
+}
+
+function countRepeatNum(set) {
+  let result = "";
+  set.forEach((element) => {
+    var count = hashTable.search(element);
+    if (count > 1) {
+      result += " - " + element + " (" + count + " lần) ";
+    }
+  });
+  if (result !== "") result = result.substring(3);
+  return result;
+}
+
+function findMinOdd(arr) {
+  let min;
+  let i = 0;
+  for (i = 0; i < arr.length; i++)
+    if (arr[i] % 2 !== 0) {
+      min = arr[i];
+      break;
+    }
+  if (i === arr.length) return "Mảng không có số lẻ";
+  arr.forEach((element) => {
+    if (element % 2 !== 0 && element < min) min = element;
+  });
+  return min;
+}
+
+function calcSumArr(arr) {
+  let result = 0;
+  arr.forEach((element) => {
+    result += element;
+  });
+  return result;
+}
+
+function createHashTable(arr) {
+  if (arr === undefined) alert("Mang chua duoc tao");
+  else
+    arr.forEach((element) => {
+      if (!set.has(element)) {
+        set.add(element);
+        hashTable.add(element, 1);
+      } else hashTable.changeValue(element, hashTable.search(element) + 1);
+    });
 }

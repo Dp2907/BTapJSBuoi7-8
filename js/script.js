@@ -13,64 +13,12 @@ var hashTable = new HashTable();
 var set = new Set();
 
 // Create Array
-document.getElementById("btnInsertArr").onclick = function () {
+$("btnInsertArr").onclick = function () {
   arr = strToNumArr(rawArray.value);
   array.innerHTML = arr;
 };
-// Dùng HashTable và Set để đếm số lần lặp lại của các phần tử trong mảng
-function deleteOldHashTable(set) {
-  set.forEach((element) => {
-    hashTable.remove(element);
-    set.delete(element);
-  });
-}
-function createHashTable(arr) {
-  if (arr === undefined) alert("Mang chua duoc tao");
-  else
-    arr.forEach((element) => {
-      if (!set.has(element)) {
-        set.add(element);
-        hashTable.add(element, 1);
-      } else hashTable.changeValue(element, hashTable.search(element) + 1);
-    });
-}
 
-function countRepeatNum(set) {
-  let result = "";
-  set.forEach((element) => {
-    var count = hashTable.search(element);
-    if (count > 1) {
-      result += " - " + element + " (" + count + " lần) ";
-    }
-  });
-  if (result !== "") result = result.substring(3);
-  return result;
-}
-
-function findMinOdd(arr) {
-  let min;
-  let i = 0;
-  for (i = 0; i < arr.length; i++)
-    if (arr[i] % 2 !== 0) {
-      min = arr[i];
-      break;
-    }
-  if (i === arr.length) return "Mảng không có số lẻ";
-  arr.forEach((element) => {
-    if (element % 2 !== 0 && element < min) min = element;
-  });
-  return min;
-}
-
-function calcSumArr(arr) {
-  let result = 0;
-  arr.forEach((element) => {
-    result += element;
-  });
-  return result;
-}
-
-document.getElementById("handleBtn").onclick = function () {
+$("handleBtn").onclick = function () {
   let _num = Number(num.value);
   deleteOldHashTable(set);
   createHashTable(arr);
@@ -82,4 +30,14 @@ document.getElementById("handleBtn").onclick = function () {
   if (countRepeatNum(set) === "")
     occurrencesOfNumbers.innerHTML = "Không có phần tử nào lặp lại trong mảng";
   else occurrencesOfNumbers.innerHTML = countRepeatNum(set);
+};
+
+// Bai 1:
+var productQuantity = $("productQuantity");
+var content = $("content");
+
+$("btnPrintProduct").onclick = function () {
+  let str =
+    '<div class="col-lg-4 col-md-6 product__item"><div class="item__top"><img src="https://c.pxhere.com/photos/21/e0/cafe_man_sitting_people_male_coffee_restaurant_lifestyle-1087238.jpg!d" srcset="https://c.pxhere.com/photos/21/e0/cafe_man_sitting_people_male_coffee_restaurant_lifestyle-1087238.jpg!d" class = "w-100"/></div><div class="item__bottom"><h4>Product Name</h4><p>Product price</p></div></div>';
+  content.innerHTML = repeatElements(str, Number(productQuantity.value));
 };
